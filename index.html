@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"> <!-- Added data-theme for theme switching -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags (Hyper-Optimized & Updated) -->
+    <title>#1 JEE Goal Tracker & Study Planner | Free Performance Dashboard</title>
+    <meta name="description" content="The ultimate FREE daily goal tracker, study timer, syllabus tracker, and planner for JEE Mains & Advanced. Log daily tasks, track syllabus completion, log study hours, and visualize your performance. Boost your productivity and rank for the JEE exam.">
+    <meta name="keywords" content="JEE goal tracker, JEE study planner, JEE syllabus tracker, free JEE tool, question tracker, daily study plan, JEE performance dashboard, JEE preparation app, JEE Mains tracker, JEE Advanced planner, productivity for students, Chart.js dashboard, rank booster, study timer, stopwatch for students, study time tracker, dark mode study tool, JEE mistake log, daily streak">
+    <meta name="author" content="JEE Aspirant Tools">
+    
+    <!-- Canonical & Social Media Tags -->
+    <link rel="canonical" href="https://your-domain.com/"> 
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:title" content="#1 JEE Goal Tracker & Study Planner | Free Performance Dashboard">
+    <meta property="og:description" content="The ultimate FREE daily goal tracker and study planner for JEE Mains & Advanced. Track your progress and boost your rank.">
+    <meta property="og:image" content="https://your-domain.com/assets/social-share-image.png"> 
+    <meta property="og:site_name" content="JEE Goal Tracker">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com/">
+    <meta property="twitter:title" content="#1 JEE Goal Tracker & Study Planner | Free Performance Dashboard">
+    <meta property="twitter:description" content="The ultimate FREE daily goal tracker and study planner for JEE Mains & Advanced. Track your progress and boost your rank.">
+    <meta property="twitter:image" content="https://your-domain.com/assets/social-share-image.png">
+
+    <!-- Favicon (Self-contained SVG) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+    
+    <!-- Google Fonts & Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data (Enhanced with FAQ) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "JEE Goal Tracker & Study Planner",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "Web",
+          "description": "A free daily goal tracker and weekly performance dashboard for JEE aspirants to enhance productivity, log questions solved, and track study progress for Physics, Chemistry, and Maths.",
+          "offers": { "@type": "Offer", "price": "0" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "150" 
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "JEE Aspirant Tools"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is this JEE Goal Tracker completely free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, this tool is 100% free to use. All features, including the daily goal tracker, question log, performance charts, and study timer are available at no cost. It is supported by unobtrusive ads."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is my study data saved?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your privacy is our priority. All the data you enter is stored securely in your browser's local storage. It is never sent to our servers, ensuring your study plan remains completely private to you."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use this tool for NEET or other exams?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely! While designed with JEE aspirants in mind (Physics, Chemistry, Maths), the daily to-do list, performance tracking, and study timer features are perfectly suitable for students preparing for NEET, BITSAT, or any other competitive exam."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Internal CSS (with H1 reset) -->
+    <style>
+        :root {
+            --primary-color: #007bff; --secondary-color: #6c757d; --background-color: #f8f9fa; --surface-color: #ffffff; --text-color: #212529; --heading-color: #343a40; --border-color: #dee2e6; --green: #28a745; --red: #dc3545; --blue: #0d6efd; --physics-color: #28a745; --chemistry-color: #0d6efd; --maths-color: #dc3545; --font-family: 'Poppins', sans-serif;
+            --streak-color: #ff9800; --streak-color-end: #ffc107;
+        }
+        /* --- Dark Mode Theme --- */
+        html[data-theme='dark'] {
+            --background-color: #121212; --surface-color: #1e1e1e; --text-color: #e0e0e0; --heading-color: #ffffff; --border-color: #3a3a3a; --secondary-color: #a0a0a0;
+            color-scheme: dark;
+        }
+        html[data-theme='dark'] .countdown-box { background: linear-gradient(135deg, var(--primary-color), #004182); }
+        html[data-theme='dark'] #formula-display,
+        html[data-theme='dark'] .form-control { background-color: #2c2c2c; color: var(--text-color); border-color: var(--border-color); }
+        html[data-theme='dark'] .form-control::placeholder { color: var(--secondary-color); }
+        html[data-theme='dark'] .ad-placeholder { background-color: #2c2c2c; border-color: var(--border-color); color: var(--secondary-color); }
+        html[data-theme='dark'] .modal-content { background-color: var(--surface-color); color: var(--text-color); }
+        html[data-theme='dark'] .modal-header, html[data-theme='dark'] .modal-footer { border-color: var(--border-color); }
+        html[data-theme='dark'] .btn-close { filter: invert(1) grayscale(100%) brightness(200%); }
+        html[data-theme='dark'] .progress-bar { --bs-progress-bar-bg: var(--green);}
+        html[data-theme='dark'] .progress { --bs-progress-bg: #333;}
+        html[data-theme='dark'] .form-check-input:not(:checked) { background-color: #333; border-color: #555; }
+        html[data-theme='dark'] .list-group-item { background-color: var(--surface-color); border-color: var(--border-color); color: var(--text-color); }
+        html[data-theme='dark'] .table { --bs-table-color: var(--text-color); --bs-table-border-color: var(--border-color); --bs-table-striped-color: #fff; }
+        
+        body { font-family: var(--font-family); background-color: var(--background-color); color: var(--text-color); transition: background-color 0.3s, color 0.3s; }
+        header { background-color: var(--surface-color); border-bottom: 1px solid var(--border-color); }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--heading-color); text-decoration: none; }
+        .logo .fa-rocket { color: var(--primary-color); }
+        .logo h1 { font-size: inherit; font-weight: inherit; margin: 0; display: inline; } /* H1 Reset */
+        
+        /* --- User Greeting Styles --- */
+        #user-greeting { font-size: 1.25rem; font-weight: 600; background: linear-gradient(45deg, var(--primary-color), var(--maths-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; animation: fadeIn 1s ease-in-out; }
+        html[data-theme='dark'] #user-greeting { background: linear-gradient(45deg, var(--primary-color), #00c6ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent;}
+        #user-greeting .edit-name-icon { font-size: 0.8rem; margin-left: 8px; cursor: pointer; color: var(--secondary-color); opacity: 0; transition: opacity 0.3s; vertical-align: middle; }
+        #user-greeting:hover .edit-name-icon { opacity: 0.7; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- NEW: Streak Display Styles --- */
+        #streak-display { display: flex; align-items: center; gap: 5px; font-weight: 600; transition: color 0.3s; }
+        #streak-display .fa-fire { color: var(--secondary-color); opacity: 0.6; transition: all 0.3s ease; }
+        #streak-display.streak-active .fa-fire {
+            opacity: 1;
+            background: linear-gradient(45deg, var(--streak-color), var(--streak-color-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            transform: scale(1.1);
+        }
+        #streak-count { color: var(--secondary-color); }
+        #streak-display.streak-active #streak-count { color: var(--streak-color); }
+        html[data-theme='dark'] #streak-display.streak-active #streak-count { color: var(--streak-color-end); }
+
+        .nav-link { color: var(--secondary-color); text-decoration: none; margin-left: 1rem; transition: color 0.2s; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--primary-color); }
+        .card-custom { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); margin-bottom: 1.5rem; transition: background-color 0.3s, border-color 0.3s;}
+        .card-title-custom { font-size: 1.5rem; font-weight: 600; color: var(--heading-color); margin-bottom: 0.5rem; } /* Reduced margin */
+        .card-description { font-size: 0.95rem; color: var(--secondary-color); margin-bottom: 1rem; }
+        .task-input-group { display: flex; gap: 10px; }
+        #task-list { list-style: none; padding: 0; margin-top: 1.5rem; }
+        .task-item { display: flex; align-items: center; padding: 0.75rem 0.5rem; border-bottom: 1px solid var(--border-color); }
+        .task-item:last-child { border-bottom: none; }
+        .task-item.completed .task-text { text-decoration: line-through; color: var(--secondary-color); }
+        .task-item .delete-btn { background: none; border: none; color: var(--secondary-color); opacity: 0.5; transition: all 0.2s; }
+        .task-item:hover .delete-btn { opacity: 1; color: var(--red); }
+        .progress { height: 1.25rem; border-radius: 8px; }
+        .subject-log-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; }
+        .subject-col h5 { font-weight: 600; margin-bottom: 1rem; }
+        .subject-col .form-label { font-weight: 500; font-size: 0.9rem; }
+        .subject-col .form-control { text-align: center; font-weight: 600; }
+        .feedback-message { font-size: 0.85rem; margin-top: 0.75rem; font-weight: 500; min-height: 40px; }
+        .feedback-positive { color: var(--green); }
+        .feedback-negative { color: var(--red); }
+        .feedback-neutral { color: var(--secondary-color); }
+        #save-log-btn { font-weight: 600; }
+        .physics-label { color: var(--physics-color); }
+        .chemistry-label { color: var(--chemistry-color); }
+        .maths-label { color: var(--maths-color); }
+        .chart-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;}
+        .timeframe-switcher .btn { font-size: 0.9rem; }
+        .chart-container { height: 300px; position: relative; }
+        .widget { margin-bottom: 1.5rem; }
+        .countdown-box { background: linear-gradient(135deg, var(--blue), #0056b3); color: white; padding: 1.5rem; border-radius: 12px; text-align: center; }
+        .countdown-title { font-size: 1.2rem; font-weight: 500; opacity: 0.9; }
+        .countdown-timer { font-size: 2.5rem; font-weight: 700; letter-spacing: 2px; }
+        .summary-box .summary-percent { font-size: 3rem; font-weight: 700; color: var(--green); }
+        .motivational-quote p { font-size: 1.05rem; font-style: italic; color: var(--secondary-color); text-align: center; }
+        .formula-widget #formula-display { font-family: 'Courier New', Courier, monospace; font-size: 1.2rem; font-weight: 600; background-color: #e9ecef; border: 1px solid var(--border-color); word-wrap: break-word; }
+        .formula-widget #formula-name { color: var(--heading-color); font-size: 1.05rem; }
+        .formula-widget .badge { font-size: 0.9rem; font-weight: 600; }
+        #speed-metrics-list, #study-time-log-list { list-style: none; padding: 0; }
+        #speed-metrics-list li, #study-time-log-list li { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color); }
+        #speed-metrics-list li:last-child, #study-time-log-list li:last-child { border-bottom: none; }
+        .speed-label, .study-log-label { color: var(--secondary-color); }
+        .speed-value, .study-log-value { font-size: 1.3rem; font-weight: 600; color: var(--primary-color); }
+        .study-hours-wrapper { font-size: 0.8rem; color: var(--secondary-color); text-align: center; margin-top: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        #study-hours-input { width: 50px; text-align: center; border: 1px solid var(--border-color); border-radius: 6px; padding: 2px 4px; font-weight: 600; }
+        #study-hours-input::-webkit-outer-spin-button, #study-hours-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        #study-hours-input { -moz-appearance: textfield; }
+        .ad-placeholder { background-color: #e9ecef; border: 2px dashed var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--secondary-color); font-weight: 500; border-radius: 8px; width: 100%; }
+        .ad-banner { min-height: 90px; } .ad-sidebar { min-height: 250px; } .ad-content { min-height: 100px; }
+        footer { text-align: center; padding: 1.5rem 0; margin-top: 2rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--secondary-color); }
+        footer a { color: var(--secondary-color); text-decoration: underline; } footer a:hover { color: var(--primary-color); }
+        #cookie-consent-banner { position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(33, 37, 41, 0.95); color: white; padding: 1rem; z-index: 1050; display: none; align-items: center; justify-content: space-between; gap: 1rem; }
+        
+        /* --- Timer Widget Styles --- */
+        #timer-widget.fullscreen { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #212529; z-index: 2000; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 0; margin: 0; padding: 2rem; }
+        #timer-widget.fullscreen #timer-display { font-size: 15vw; color: white; font-family: 'Courier New', Courier, monospace; }
+        #timer-widget.fullscreen .card-title-custom, #timer-widget.fullscreen #timer-mode-switcher, #timer-widget.fullscreen #timer-inputs { display: none; }
+        #timer-widget.fullscreen #timer-start-pause-btn, #timer-widget.fullscreen #timer-reset-btn { padding: 1rem 2rem; font-size: 1.5rem; width: 200px; margin-top: 2rem; }
+        #timer-widget.fullscreen #timer-fullscreen-btn { position: absolute; top: 20px; right: 20px; color: white; border-color: white; z-index: 2001; }
+        #timer-widget.fullscreen #timer-fullscreen-btn .fa-expand { display: none; }
+        #timer-widget.fullscreen #timer-fullscreen-btn .fa-compress { display: inline-block; }
+        #timer-fullscreen-btn .fa-compress { display: none; }
+        #timer-display { font-family: 'Courier New', Courier, monospace; font-size: 2.2rem; color: var(--heading-color); }
+
+        /* --- Theme Customization Styles --- */
+        .theme-swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border-color); cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; padding: 0; }
+        .theme-swatch:hover { transform: scale(1.1); }
+        .theme-swatch.active { box-shadow: 0 0 0 3px var(--primary-color); transform: scale(1.1); }
+        .form-switch .form-check-input { width: 3em; height: 1.5em; cursor: pointer; }
+
+        /* --- Syllabus Tracker Styles --- */
+        #syllabus-summary-list { list-style: none; padding: 0; margin-bottom: 1.5rem; }
+        #syllabus-summary-list li { margin-bottom: 1rem; }
+        #syllabus-summary-list .progress { height: 8px; }
+        .syllabus-subject-label { font-weight: 500; font-size: 0.95rem; }
+        .syllabus-topic { cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.2s; user-select: none; padding: 0.65rem 1rem;}
+        .syllabus-topic:hover { background-color: rgba(0,0,0,0.05); }
+        html[data-theme='dark'] .syllabus-topic:hover { background-color: rgba(255,255,255,0.05); }
+        .syllabus-topic.completed { color: var(--secondary-color); text-decoration: line-through; }
+        .syllabus-topic .check-icon { color: var(--green); font-size: 1.2rem; opacity: 0; transition: opacity 0.2s; }
+        .syllabus-topic.completed .check-icon { opacity: 1; }
+        
+        /* --- Mistake Tracker Styles --- */
+        #mistake-list .table { font-size: 0.9rem; }
+        #mistake-list .table td { vertical-align: middle; }
+        .delete-mistake-btn { background: none; border: none; color: var(--secondary-color); opacity: 0.6; }
+        .delete-mistake-btn:hover { opacity: 1; color: var(--red); }
+    </style>
+</head>
+<body>
+
+    <header class="shadow-sm">
+        <nav class="container d-flex justify-content-between align-items-center py-3">
+            <div class="d-flex align-items-center gap-3">
+                <a href="/" class="logo" aria-label="JEE Goal Tracker Homepage">
+                    <h1><i class="fa-solid fa-rocket" aria-hidden="true"></i> JEE Goal Tracker</h1>
+                </a>
+                <div id="user-greeting" class="d-none"></div>
+            </div>
+            <div class="d-flex align-items-center">
+                <!-- NEW: Streak Display -->
+                <div id="streak-display" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your daily usage streak. Keep it going!">
+                    <i class="fa-solid fa-fire fa-lg"></i>
+                    <span id="streak-count">0</span>
+                </div>
+                <a href="#aboutModal" class="nav-link" data-bs-toggle="modal">About</a>
+                <a href="#contactModal" class="nav-link" data-bs-toggle="modal">Contact</a>
+                <a href="#privacyModal" class="nav-link" data-bs-toggle="modal">Privacy</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container my-3">
+        <div class="ad-placeholder ad-banner" aria-label="Advertisement Banner">Top Ad Banner (Responsive)</div>
+    </div>
+
+    <main class="container my-4">
+        <div class="row g-4">
+            <!-- Main Content Column -->
+            <div class="col-lg-8" id="main-content">
+                <!-- Daily Goals (To-Do List) -->
+                <section id="daily-goals" class="card-custom" aria-labelledby="daily-goals-title">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 id="daily-goals-title" class="card-title-custom">Today's Study Goals (<span id="today-date"></span>)</h2>
+                        <i class="fa-solid fa-bullseye fa-2x text-primary opacity-75" aria-hidden="true"></i>
+                    </div>
+                    <p class="card-description">Create a daily to-do list for your JEE preparation. Add revision topics, practice sessions, or any other tasks to stay organized and focused.</p>
+                    <hr>
+                    <form id="task-form">
+                        <div class="task-input-group">
+                            <input type="text" id="task-input" class="form-control" placeholder="e.g., Revise Electrostatics" required>
+                            <button type="submit" class="btn btn-primary" aria-label="Add task"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add</button>
+                        </div>
+                    </form>
+                    <ul id="task-list"></ul>
+                    <div class="progress-bar-container mt-3">
+                        <div class="d-flex justify-content-between"><span>Daily Progress</span><span id="progress-text">0%</span></div>
+                        <div class="progress"><div id="progress-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%;"></div></div>
+                    </div>
+                </section>
+                
+                <!-- Daily Question Log Section -->
+                <section id="question-tracker" class="card-custom" aria-labelledby="question-log-title">
+                    <h2 id="question-log-title" class="card-title-custom">Daily Question Practice Log</h2>
+                    <p class="card-description">Consistency is key. Set daily question goals for Physics, Chemistry, and Maths, then log how many you solve to hold yourself accountable.</p>
+                    <div class="subject-log-grid">
+                        <div class="subject-col">
+                            <h5 class="physics-label"><i class="fa-solid fa-atom" aria-hidden="true"></i> Physics</h5>
+                            <label for="goal-physics" class="form-label">Daily Goal</label>
+                            <input type="number" id="goal-physics" class="form-control mb-3" min="0" placeholder="e.g., 30">
+                            <label for="solved-physics" class="form-label">Questions Solved</label>
+                            <input type="number" id="solved-physics" class="form-control" min="0" placeholder="e.g., 25">
+                            <div id="feedback-physics" class="feedback-message"></div>
+                        </div>
+                        <div class="subject-col">
+                            <h5 class="chemistry-label"><i class="fa-solid fa-flask-vial" aria-hidden="true"></i> Chemistry</h5>
+                            <label for="goal-chemistry" class="form-label">Daily Goal</label>
+                            <input type="number" id="goal-chemistry" class="form-control mb-3" min="0" placeholder="e.g., 30">
+                            <label for="solved-chemistry" class="form-label">Questions Solved</label>
+                            <input type="number" id="solved-chemistry" class="form-control" min="0" placeholder="e.g., 35">
+                            <div id="feedback-chemistry" class="feedback-message"></div>
+                        </div>
+                        <div class="subject-col">
+                            <h5 class="maths-label"><i class="fa-solid fa-calculator" aria-hidden="true"></i> Mathematics</h5>
+                            <label for="goal-maths" class="form-label">Daily Goal</label>
+                            <input type="number" id="goal-maths" class="form-control mb-3" min="0" placeholder="e.g., 30">
+                            <label for="solved-maths" class="form-label">Questions Solved</label>
+                            <input type="number" id="solved-maths" class="form-control" min="0" placeholder="e.g., 30">
+                            <div id="feedback-maths" class="feedback-message"></div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button id="save-log-btn" class="btn btn-success"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save Today's Log & Goals</button>
+                    </div>
+                </section>
+
+                <div class="ad-placeholder ad-content" aria-label="Advertisement">In-Content Ad</div>
+
+                <section id="subject-performance" class="card-custom" aria-labelledby="subject-performance-title">
+                     <div class="chart-controls">
+                        <h2 id="subject-performance-title" class="card-title-custom mb-0">Question Practice Trend</h2>
+                        <div id="timeframe-switcher" class="btn-group" role="group" aria-label="Chart timeframe switcher">
+                            <button type="button" class="btn btn-outline-primary active" data-days="7">Last 7 Days</button>
+                            <button type="button" class="btn btn-outline-primary" data-days="30">Last 30 Days</button>
+                        </div>
+                    </div>
+                    <p class="card-description">Visualize your subject-wise consistency. Identify your strengths and weaknesses by comparing your question solving trends over time.</p>
+                    <div class="chart-container"><canvas id="subjectChart"></canvas></div>
+                </section>
+                
+                <section id="weekly-performance" class="card-custom" aria-labelledby="weekly-performance-title">
+                    <h2 id="weekly-performance-title" class="card-title-custom">Weekly Task Completion Rate</h2>
+                     <p class="card-description">Track your discipline. This chart shows the percentage of daily goals you completed over the past week, helping you build a strong study habit.</p>
+                    <div class="chart-container"><canvas id="performanceChart"></canvas></div>
+                </section>
+
+                <section id="mistake-tracker" class="card-custom" aria-labelledby="mistake-log-title">
+                    <h2 id="mistake-log-title" class="card-title-custom">Recent Mistakes Log</h2>
+                    <p class="card-description">Learning from mistakes is the key to improvement. Log your errors to identify patterns and prevent them in the future.</p>
+                    <div id="mistake-list" class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Topic</th>
+                                    <th>Error Type</th>
+                                    <th>Source</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mistake-table-body">
+                                <!-- JS will populate this -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center mt-2">
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#mistakeLogModal"><i class="fa-solid fa-circle-exclamation"></i> Log a New Mistake</button>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar Column -->
+            <aside class="col-lg-4">
+                <div class="card-custom widget countdown-box shadow">
+                    <div class="countdown-title">Countdown to JEE Exam</div>
+                    <div id="countdown-timer" class="countdown-timer">--:--:--:--</div>
+                </div>
+
+                <div class="ad-placeholder ad-sidebar" aria-label="Advertisement Sidebar">Sidebar Ad (300x250)</div>
+
+                <div class="card-custom widget summary-box">
+                    <h3 class="card-title-custom">This Week's Avg. Task Completion</h3>
+                    <p id="weekly-summary-percent" class="summary-percent">0%</p>
+                </div>
+
+                <div class="card-custom widget motivational-quote">
+                     <h3 class="card-title-custom text-center">Thought of the Day</h3>
+                     <p id="quote-text">Loading quote...</p>
+                </div>
+
+                <div class="card-custom widget formula-widget">
+                    <h3 class="card-title-custom text-center">Formula of the Day</h3>
+                    <div id="formula-details">
+                        <div id="formula-subject-badge" class="text-center mb-2"></div>
+                        <p id="formula-name" class="text-center fw-bold"></p>
+                        <div id="formula-display" class="text-center p-3 rounded">Loading formula...</div>
+                    </div>
+                </div>
+
+                <div class="card-custom widget">
+                    <h3 class="card-title-custom text-center">Question Solving Speed</h3>
+                    <ul id="speed-metrics-list">
+                        <li>
+                            <span class="speed-label"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Per Hour</span>
+                            <span id="speed-qph" class="speed-value">0.0</span>
+                        </li>
+                        <li>
+                            <span class="speed-label"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Per Day (Avg)</span>
+                            <span id="speed-qpd" class="speed-value">0</span>
+                        </li>
+                        <li>
+                            <span class="speed-label"><i class="fa-solid fa-calendar-week" aria-hidden="true"></i> Per Week (Proj.)</span>
+                            <span id="speed-qpw" class="speed-value">0</span>
+                        </li>
+                    </ul>
+                    <div class="study-hours-wrapper">
+                        <span>Based on</span>
+                        <input type="number" id="study-hours-input" min="1" max="24" aria-label="Daily study hours">
+                        <span>study hours/day.</span>
+                    </div>
+                </div>
+
+                <div class="card-custom widget">
+                    <h3 class="card-title-custom text-center">Next Mock Test Timer</h3>
+                    <div class="mb-3">
+                        <label for="next-test-date-input" class="form-label" style="font-size: 0.9rem;">Set test date & time:</label>
+                        <input type="datetime-local" id="next-test-date-input" class="form-control form-control-sm">
+                    </div>
+                    <div id="next-test-countdown" class="countdown-timer" style="font-size: 2rem; text-align: center; color: var(--primary-color); letter-spacing: 1px;">Set a date!</div>
+                </div>
+                
+                <div class="card-custom widget" id="timer-widget">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="card-title-custom text-center mb-0">Study Timer</h3>
+                        <button id="timer-fullscreen-btn" class="btn btn-sm btn-outline-secondary" aria-label="Toggle Fullscreen">
+                            <i class="fa-solid fa-expand"></i>
+                            <i class="fa-solid fa-compress"></i>
+                        </button>
+                    </div>
+                    
+                    <div id="timer-display" class="text-center my-3">00:00</div>
+                
+                    <div class="btn-group w-100 mb-3" role="group" id="timer-mode-switcher">
+                        <button class="btn btn-outline-primary active" data-mode="timer">Timer</button>
+                        <button class="btn btn-outline-primary" data-mode="stopwatch">Stopwatch</button>
+                    </div>
+                
+                    <div id="timer-inputs">
+                        <p class="text-center text-muted small mb-1">Set a countdown duration:</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2" id="predefined-timers">
+                            <button class="btn btn-secondary btn-sm" data-time="60">1 min</button>
+                            <button class="btn btn-secondary btn-sm" data-time="300">5 min</button>
+                            <button class="btn btn-secondary btn-sm" data-time="600">10 min</button>
+                            <button class="btn btn-secondary btn-sm" data-time="1500">25 min</button>
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="number" id="custom-time-input" class="form-control" placeholder="Custom minutes" min="1">
+                            <button id="set-custom-time-btn" class="btn btn-outline-secondary">Set</button>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center gap-2">
+                        <button id="timer-start-pause-btn" class="btn btn-success w-50"><i class="fa-solid fa-play"></i> Start</button>
+                        <button id="timer-reset-btn" class="btn btn-danger w-50"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+                    </div>
+                </div>
+                
+                <div class="card-custom widget">
+                    <h3 class="card-title-custom text-center">Study Time Log</h3>
+                    <ul id="study-time-log-list">
+                        <li>
+                            <span class="study-log-label"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Today</span>
+                            <span id="study-log-today" class="study-log-value">0m 0s</span>
+                        </li>
+                        <li>
+                            <span class="study-log-label"><i class="fa-solid fa-calendar-week" aria-hidden="true"></i> Avg / Week</span>
+                            <span id="study-log-avg-week" class="study-log-value">0m 0s</span>
+                        </li>
+                        <li>
+                            <span class="study-log-label"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Avg / Month</span>
+                            <span id="study-log-avg-month" class="study-log-value">0m 0s</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-custom widget">
+                    <h3 class="card-title-custom text-center">Syllabus Tracker</h3>
+                    <ul id="syllabus-summary-list">
+                        <li>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="syllabus-subject-label physics-label">Physics</span>
+                                <span id="physics-syllabus-percent" class="fw-bold">0%</span>
+                            </div>
+                            <div class="progress"><div id="physics-syllabus-progress" class="progress-bar" style="width: 0%; background-color: var(--physics-color);"></div></div>
+                        </li>
+                        <li>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="syllabus-subject-label chemistry-label">Chemistry</span>
+                                <span id="chemistry-syllabus-percent" class="fw-bold">0%</span>
+                            </div>
+                            <div class="progress"><div id="chemistry-syllabus-progress" class="progress-bar" style="width: 0%; background-color: var(--chemistry-color);"></div></div>
+                        </li>
+                        <li>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="syllabus-subject-label maths-label">Mathematics</span>
+                                <span id="maths-syllabus-percent" class="fw-bold">0%</span>
+                            </div>
+                            <div class="progress"><div id="maths-syllabus-progress" class="progress-bar" style="width: 0%; background-color: var(--maths-color);"></div></div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#syllabusModal"><i class="fa-solid fa-list-check"></i> View & Update Syllabus</button>
+                </div>
+                
+                <div class="card-custom widget">
+                    <h3 class="card-title-custom text-center">Theme & Display</h3>
+                    <div class="d-flex justify-content-between align-items-center mb-3 pt-2">
+                        <label for="darkModeSwitch" class="form-check-label">Dark Mode</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
+                        </div>
+                    </div>
+                    <hr class="my-2">
+                    <div>
+                        <label class="form-label mb-2">Accent Color</label>
+                        <div id="theme-color-swatches" class="d-flex justify-content-around">
+                            <button class="theme-swatch" data-color="#007bff" style="background-color: #007bff;" aria-label="Blue theme"></button>
+                            <button class="theme-swatch" data-color="#ff9800" style="background-color: #ff9800;" aria-label="Orange theme"></button>
+                            <button class="theme-swatch" data-color="#4caf50" style="background-color: #4caf50;" aria-label="Green theme"></button>
+                            <button class="theme-swatch" data-color="#e91e63" style="background-color: #e91e63;" aria-label="Pink theme"></button>
+                            <button class="theme-swatch" data-color="#9c27b0" style="background-color: #9c27b0;" aria-label="Purple theme"></button>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <footer class="container">
+        <p>© 2024 JEE Goal Tracker. Built with <i class="fa-solid fa-heart text-danger" aria-hidden="true"></i> for fellow aspirants.</p>
+        <p>
+            <a href="#aboutModal" data-bs-toggle="modal">About</a> | 
+            <a href="#privacyModal" data-bs-toggle="modal">Privacy Policy</a> | 
+            <a href="#disclaimerModal" data-bs-toggle="modal">Disclaimer</a> |
+            <a href="#contactModal" data-bs-toggle="modal">Contact Us</a>
+        </p>
+    </footer>
+
+    <div id="cookie-consent-banner"><p class="mb-0">This site uses cookies & localStorage to save your data on your device. By continuing, you agree to our terms. <a href="#privacyModal" data-bs-toggle="modal" class="text-white">Learn more</a>.</p><button id="accept-cookies-btn" class="btn btn-primary btn-sm">Accept</button></div>
+    
+    <div class="modal fade" id="aboutModal" tabindex="-1"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">About JEE Goal Tracker</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><h6>Our Mission</h6><p>JEE Goal Tracker was created by a fellow engineering aspirant who understood the challenges of staying consistent and organized during the demanding JEE preparation journey. Our mission is to provide a simple, powerful, and completely free tool to help you structure your daily studies, track your progress, and stay motivated until exam day.</p><h6>Why We Built This</h6><p>Instead of juggling multiple apps—a to-do list, a notebook for question tracking, and a separate app for formulas—we wanted an all-in-one dashboard. This tool is the result: a clean, fast, and private way to manage your preparation without any distractions. Your success is our biggest reward.</p></div></div></div></div>
+    
+    <div class="modal fade" id="contactModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Contact Us</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Have feedback, a feature request, or found a bug? We'd love to hear from you! As this project is run by students, email is the best way to reach out.</p><p>Please contact us at: <a href="mailto:contact@your-domain.com">contact@your-domain.com</a></p></div></div></div></div>
+
+    <div class="modal fade" id="privacyModal" tabindex="-1"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Privacy Policy</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p><em>Last Updated: May 21, 2024</em></p><h6>1. Data Storage and Privacy</h6><p>Your privacy is our top priority. <strong>All data you enter into the JEE Goal Tracker is stored exclusively in your web browser's localStorage.</strong> This means your task lists, question logs, and goals are saved directly on your own device and are never transmitted to, or stored on, any external server. We have no access to your personal study data.</p><h6>2. Cookies and Third-Party Services</h6><p>We use a single, first-party cookie to remember your consent to this privacy policy. We do not use cookies for tracking purposes.</p><p>This website displays advertisements from Google AdSense, a third-party advertising network. Google and its partners use cookies (such as the DoubleClick cookie) to serve ads based on a user's prior visits to this website or other websites. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google's Ads Settings</a>.</p><h6>3. Data Deletion</h6><p>You have full control over your data. To delete all your stored data from our tool, simply clear your browser's cache and localStorage for this website.</p></div></div></div></div>
+
+    <div class="modal fade" id="disclaimerModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Disclaimer</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>This tool is provided for informational and organizational purposes only. It is intended to be a supplementary aid for your JEE preparation and does not guarantee success or a specific rank in any examination. Your academic performance is ultimately your own responsibility. Use this tool to build discipline and track progress, but always prioritize the guidance of your teachers and mentors.</p></div></div></div></div>
+
+    <div class="modal fade" id="syllabusModal" tabindex="-1" aria-labelledby="syllabusModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="syllabusModalLabel">JEE Syllabus Tracker</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="syllabus-container">
+                        <div class="col-lg-4">
+                            <h4 class="physics-label mb-3"><i class="fa-solid fa-atom"></i> Physics</h4>
+                            <ul id="physics-topics-list" class="list-group list-group-flush"></ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4 class="chemistry-label mb-3"><i class="fa-solid fa-flask-vial"></i> Chemistry</h4>
+                            <ul id="chemistry-topics-list" class="list-group list-group-flush"></ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <h4 class="maths-label mb-3"><i class="fa-solid fa-calculator"></i> Mathematics</h4>
+                            <ul id="maths-topics-list" class="list-group list-group-flush"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="mistakeLogModal" tabindex="-1" aria-labelledby="mistakeLogModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mistakeLogModalLabel">Log a New Mistake</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="mistake-log-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="mistake-subject" class="form-label">Subject</label>
+                                <select id="mistake-subject" class="form-select" required>
+                                    <option value="physics" selected>Physics</option>
+                                    <option value="chemistry">Chemistry</option>
+                                    <option value="maths">Mathematics</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mistake-topic" class="form-label">Topic</label>
+                                <select id="mistake-topic" class="form-select" required>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mistake-error-type" class="form-label">Type of Error</label>
+                                <select id="mistake-error-type" class="form-select" required>
+                                    <option value="Conceptual">Conceptual</option>
+                                    <option value="Calculation">Calculation Error</option>
+                                    <option value="Silly Mistake">Silly Mistake</option>
+                                    <option value="Misread Question">Misread Question</option>
+                                    <option value="Time Pressure">Time Pressure</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="mistake-source" class="form-label">Source</label>
+                                <input type="text" class="form-control" id="mistake-source" placeholder="e.g., Mock Test 3, PYQ 2021">
+                            </div>
+                            <div class="col-12">
+                                <label for="mistake-correction" class="form-label">Correction & Learning</label>
+                                <textarea class="form-control" id="mistake-correction" rows="3" placeholder="What was the correct concept? What will you do differently next time?" required></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" form="mistake-log-form">Save Mistake</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="namePromptModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="namePromptModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="namePromptModalLabel">Welcome to JEE Goal Tracker!</h5>
+                </div>
+                <div class="modal-body">
+                    <p>What should we call you? Your name will be displayed on the dashboard to personalize your experience.</p>
+                    <form id="name-prompt-form">
+                        <label for="user-name-input" class="form-label">Your First Name:</label>
+                        <input type="text" id="user-name-input" class="form-control" required placeholder="e.g., Aspirant">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" form="name-prompt-form">Let's Go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts (with 'defer' for performance) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+
+        // --- CONFIGURATION ---
+        const JEE_EXAM_DATE = new Date(2025, 0, 25);
+        const MOTIVATIONAL_QUOTES = ["The secret to getting ahead is getting started.", "Success is the sum of small efforts, repeated day in and day out.", "Don't watch the clock; do what it does. Keep going.", "Believe you can and you're halfway there.", "The expert in anything was once a beginner.", "Discipline is the bridge between goals and accomplishment.", "Push yourself, because no one else is going to do it for you."];
+        const FORMULAS = [ { subject: 'Physics', topic: 'Kinematics', name: 'Equation of Motion', formula: 'v = u + at' }, { subject: 'Physics', topic: 'Kinematics', name: 'Equation of Motion', formula: 's = ut + ½at<sup>2</sup>' }, { subject: 'Physics', topic: 'Kinematics', name: 'Equation of Motion', formula: 'v<sup>2</sup> = u<sup>2</sup> + 2as' }, { subject: 'Physics', topic: 'Laws of Motion', name: 'Newton\'s Second Law', formula: 'F = ma' }, { subject: 'Physics', topic: 'Work, Energy, Power', name: 'Work-Energy Theorem', formula: 'W<sub>net</sub> = ΔK' }, { subject: 'Physics', topic: 'Rotational Motion', name: 'Torque', formula: 'τ = Iα' }, { subject: 'Physics', topic: 'Gravitation', name: 'Universal Law of Gravitation', formula: 'F = Gm<sub>1</sub>m<sub>2</sub>/r<sup>2</sup>' }, { subject: 'Physics', topic: 'SHM', name: 'Time Period of Simple Pendulum', formula: 'T = 2π√(L/g)' }, { subject: 'Physics', topic: 'Waves', name: 'Wave Speed', formula: 'v = fλ' }, { subject: 'Physics', topic: 'Electrostatics', name: 'Coulomb\'s Law', formula: 'F = kq<sub>1</sub>q<sub>2</sub>/r<sup>2</sup>' }, { subject: 'Physics', topic: 'Current Electricity', name: 'Ohm\'s Law', formula: 'V = IR' }, { subject: 'Physics', topic: 'Magnetic Effects', name: 'Force on a moving charge', formula: 'F = q(v × B)' }, { subject: 'Physics', topic: 'EMI', name: 'Faraday\'s Law of Induction', formula: 'ε = -dΦ<sub>B</sub>/dt' }, { subject: 'Physics', topic: 'Optics', name: 'Lens Maker\'s Formula', formula: '1/f = (n-1)(1/R<sub>1</sub> - 1/R<sub>2</sub>)' }, { subject: 'Physics', topic: 'Modern Physics', name: 'Photoelectric Effect', formula: 'K<sub>max</sub> = hν - Φ' }, { subject: 'Chemistry', topic: 'Mole Concept', name: 'Molarity', formula: 'M = moles of solute / V<sub>L</sub> of solution' }, { subject: 'Chemistry', topic: 'Atomic Structure', name: 'de Broglie Wavelength', formula: 'λ = h/mv' }, { subject: 'Chemistry', topic: 'States of Matter', name: 'Ideal Gas Equation', formula: 'PV = nRT' }, { subject: 'Chemistry', topic: 'Thermodynamics', name: 'Gibbs Free Energy', formula: 'ΔG = ΔH - TΔS' }, { subject: 'Chemistry', topic: 'Equilibrium', name: 'Henderson-Hasselbalch', formula: 'pH = pK<sub>a</sub> + log([A<sup>-</sup>]/[HA])' }, { subject: 'Chemistry', topic: 'Solutions', name: 'Raoult\'s Law', formula: 'P<sub>A</sub> = X<sub>A</sub>P<sup>o</sup><sub>A</sub>' }, { subject: 'Chemistry', topic: 'Electrochemistry', name: 'Nernst Equation', formula: 'E<sub>cell</sub> = E<sup>o</sup><sub>cell</sub> - (RT/nF)lnQ' }, { subject: 'Chemistry', topic: 'Chemical Kinetics', name: 'First-Order Rate Law', formula: 'k = (2.303/t) log(a/(a-x))' }, { subject: 'Chemistry', topic: 'Chemical Bonding', name: 'Hybridization (VSEPR)', formula: 'No. of hybrid orbitals = ½(V+M-C+A)' }, { subject: 'Chemistry', topic: 'Coordination Compounds', name: 'Crystal Field Splitting', formula: 'Δ<sub>o</sub> > P (Strong Field)' }, { subject: 'Maths', topic: 'Quadratic Equations', name: 'Quadratic Formula', formula: 'x = [-b ± √(b<sup>2</sup>-4ac)] / 2a' }, { subject: 'Maths', topic: 'Complex Numbers', name: 'Euler\'s Formula', formula: 'e<sup>ix</sup> = cos(x) + i sin(x)' }, { subject: 'Maths', topic: 'Binomial Theorem', name: 'General Term', formula: 'T<sub>r+1</sub> = <sup>n</sup>C<sub>r</sub> x<sup>n-r</sup> a<sup>r</sup>' }, { subject: 'Maths', topic: 'Sequences & Series', name: 'Sum of GP', formula: 'S<sub>n</sub> = a(r<sup>n</sup>-1)/(r-1)' }, { subject: 'Maths', topic: 'Trigonometry', name: 'Pythagorean Identity', formula: 'sin<sup>2</sup>(θ) + cos<sup>2</sup>(θ) = 1' }, { subject: 'Maths', topic: 'Trigonometry', name: 'Sum to Product', formula: 'sinC + sinD = 2sin((C+D)/2)cos((C-D)/2)' }, { subject: 'Maths', topic: 'Straight Lines', name: 'Distance from a point', formula: 'd = |Ax<sub>1</sub>+By<sub>1</sub>+C|/√(A<sup>2</sup>+B<sup>2</sup>)' }, { subject: 'Maths', topic: 'Conic Sections', name: 'Ellipse Eccentricity', formula: 'e = √(1 - b<sup>2</sup>/a<sup>2</sup>)' }, { subject: 'Maths', topic: 'Limits', name: 'Standard Limit', formula: 'lim <sub>x→0</sub> (sinx/x) = 1' }, { subject: 'Maths', topic: 'Derivatives', name: 'Product Rule', formula: '(uv)\' = u\'v + uv\'' }, { subject: 'Maths', topic: 'Integration', name: 'Integration by Parts', formula: '∫u v dx = u∫v dx - ∫(u\'(∫v dx))dx' }, { subject: 'Maths', topic: 'Definite Integrals', name: 'King\'s Property', formula: '∫<sub>a</sub><sup>b</sup> f(x)dx = ∫<sub>a</sub><sup>b</sup> f(a+b-x)dx' }, { subject: 'Maths', topic: 'Vectors', name: 'Scalar Triple Product', formula: '[a b c] = a · (b × c)' }, { subject: 'Maths', topic: 'Probability', name: 'Bayes\' Theorem', formula: 'P(A|B) = [P(B|A)P(A)] / P(B)' }, { subject: 'Maths', topic: '3D Geometry', name: 'Shortest distance between lines', formula: 'd = |(a<sub>2</sub>-a<sub>1</sub>)·(b<sub>1</sub>×b<sub>2</sub>)|/|b<sub>1</sub>×b<sub>2</sub>|' }];
+        const SYLLABUS_DATA = {
+            physics: [
+                {id: 'p_units', name: 'Units and Measurements'}, {id: 'p_kinematics', name: 'Kinematics'}, {id: 'p_nlm', name: 'Laws of Motion'}, {id: 'p_wpe', name: 'Work, Energy and Power'}, {id: 'p_rotation', name: 'Rotational Motion'}, {id: 'p_gravitation', name: 'Gravitation'}, {id: 'p_solids_fluids', name: 'Properties of Solids and Liquids'}, {id: 'p_thermo', name: 'Thermodynamics'}, {id: 'p_ktg', name: 'Kinetic Theory of Gases'}, {id: 'p_shm_waves', name: 'Oscillations and Waves'}, {id: 'p_electrostatics', name: 'Electrostatics'}, {id: 'p_current', name: 'Current Electricity'}, {id: 'p_magnetics', name: 'Magnetic Effects of Current'}, {id: 'p_emi_ac', name: 'EMI and AC'}, {id: 'p_em_waves', name: 'EM Waves'}, {id: 'p_optics', name: 'Optics'}, {id: 'p_dual_nature', name: 'Dual Nature of Matter'}, {id: 'p_atoms_nuclei', name: 'Atoms and Nuclei'}, {id: 'p_semiconductors', name: 'Electronic Devices'}, {id: 'p_communication', name: 'Communication Systems'}
+            ],
+            chemistry: [
+                {id: 'c_mole', name: 'Some Basic Concepts'}, {id: 'c_structure', name: 'Atomic Structure'}, {id: 'c_bonding', name: 'Chemical Bonding'}, {id: 'c_states', name: 'States of Matter'}, {id: 'c_thermo', name: 'Thermodynamics'}, {id: 'c_equilibrium', name: 'Equilibrium'}, {id: 'c_redox', name: 'Redox Reactions'}, {id: 'c_hydrogen', name: 'Hydrogen'}, {id: 'c_s_block', name: 's-Block Elements'}, {id: 'c_p_block', name: 'p-Block Elements (13-14)'}, {id: 'c_organic_basic', name: 'Organic Chem - Basic Principles'}, {id: 'c_hydrocarbons', name: 'Hydrocarbons'}, {id: 'c_solid_state', name: 'Solid State'}, {id: 'c_solutions', name: 'Solutions'}, {id: 'c_electrochem', name: 'Electrochemistry'}, {id: 'c_kinetics', name: 'Chemical Kinetics'}, {id: 'c_surface', name: 'Surface Chemistry'}, {id: 'c_p_block_2', name: 'p-Block Elements (15-18)'}, {id: 'c_d_f_block', name: 'd and f Block Elements'}, {id: 'c_coordination', name: 'Coordination Compounds'}, {id: 'c_haloalkanes', name: 'Haloalkanes and Haloarenes'}, {id: 'c_alcohols', name: 'Alcohols, Phenols and Ethers'}, {id: 'c_aldehydes', name: 'Aldehydes, Ketones & Acids'}, {id: 'c_amines', name: 'Amines'}, {id: 'c_biomolecules', name: 'Biomolecules'}, {id: 'c_polymers', name: 'Polymers'}, {id: 'c_chem_everyday', name: 'Chemistry in Everyday Life'}
+            ],
+            maths: [
+                {id: 'm_sets', name: 'Sets, Relations & Functions'}, {id: 'm_complex', name: 'Complex Numbers & Quadratic'}, {id: 'm_matrices', name: 'Matrices and Determinants'}, {id: 'm_pnc', name: 'Permutations & Combinations'}, {id: 'm_binomial', name: 'Binomial Theorem'}, {id: 'm_sequence', name: 'Sequence and Series'}, {id: 'm_limits', name: 'Limits, Continuity & Diff.'}, {id: 'm_integrals', name: 'Integral Calculus'}, {id: 'm_diff_eq', name: 'Differential Equations'}, {id: 'm_conic', name: 'Coordinate Geometry'}, {id: 'm_3d', name: 'Three Dimensional Geometry'}, {id: 'm_vector', name: 'Vector Algebra'}, {id: 'm_stats_prob', name: 'Statistics & Probability'}, {id: 'm_trig', name: 'Trigonometry'}, {id: 'm_reasoning', name: 'Mathematical Reasoning'}
+            ]
+        };
+        
+        // --- DOM Element Selection ---
+        const todayDateEl = document.getElementById('today-date');
+        const countdownTimerEl = document.getElementById('countdown-timer');
+        const quoteTextEl = document.getElementById('quote-text');
+        const taskForm = document.getElementById('task-form');
+        const taskInput = document.getElementById('task-input');
+        const taskList = document.getElementById('task-list');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const weeklySummaryPercent = document.getElementById('weekly-summary-percent');
+        const goalInputs = { physics: document.getElementById('goal-physics'), chemistry: document.getElementById('goal-chemistry'), maths: document.getElementById('goal-maths') };
+        const solvedInputs = { physics: document.getElementById('solved-physics'), chemistry: document.getElementById('solved-chemistry'), maths: document.getElementById('solved-maths') };
+        const feedbackEls = { physics: document.getElementById('feedback-physics'), chemistry: document.getElementById('feedback-chemistry'), maths: document.getElementById('feedback-maths') };
+        const saveLogBtn = document.getElementById('save-log-btn');
+        const timeframeSwitcher = document.getElementById('timeframe-switcher');
+        const formulaSubjectBadgeEl = document.getElementById('formula-subject-badge');
+        const formulaNameEl = document.getElementById('formula-name');
+        const formulaDisplayEl = document.getElementById('formula-display');
+        const speedQphEl = document.getElementById('speed-qph');
+        const speedQpdEl = document.getElementById('speed-qpd');
+        const speedQpwEl = document.getElementById('speed-qpw');
+        const studyHoursInputEl = document.getElementById('study-hours-input');
+        const nextTestDateInputEl = document.getElementById('next-test-date-input');
+        const nextTestCountdownEl = document.getElementById('next-test-countdown');
+        const cookieBanner = document.getElementById('cookie-consent-banner');
+        const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+
+        // Timer Widget Elements
+        const timerWidget = document.getElementById('timer-widget');
+        const timerDisplayEl = document.getElementById('timer-display');
+        const timerModeSwitcher = document.getElementById('timer-mode-switcher');
+        const timerInputs = document.getElementById('timer-inputs');
+        const predefinedTimers = document.getElementById('predefined-timers');
+        const customTimeInput = document.getElementById('custom-time-input');
+        const setCustomTimeBtn = document.getElementById('set-custom-time-btn');
+        const timerStartPauseBtn = document.getElementById('timer-start-pause-btn');
+        const timerResetBtn = document.getElementById('timer-reset-btn');
+        const timerFullscreenBtn = document.getElementById('timer-fullscreen-btn');
+        
+        // Study Log Elements
+        const studyLogTodayEl = document.getElementById('study-log-today');
+        const studyLogAvgWeekEl = document.getElementById('study-log-avg-week');
+        const studyLogAvgMonthEl = document.getElementById('study-log-avg-month');
+
+        // Theme Elements
+        const darkModeSwitch = document.getElementById('darkModeSwitch');
+        const themeColorSwatches = document.getElementById('theme-color-swatches');
+
+        // Syllabus Tracker Elements
+        const syllabusContainer = document.getElementById('syllabus-container');
+        const syllabusSummary = {
+            physics: { percent: document.getElementById('physics-syllabus-percent'), progress: document.getElementById('physics-syllabus-progress') },
+            chemistry: { percent: document.getElementById('chemistry-syllabus-percent'), progress: document.getElementById('chemistry-syllabus-progress') },
+            maths: { percent: document.getElementById('maths-syllabus-percent'), progress: document.getElementById('maths-syllabus-progress') }
+        };
+
+        // Mistake Tracker Elements
+        const mistakeLogForm = document.getElementById('mistake-log-form');
+        const mistakeSubjectEl = document.getElementById('mistake-subject');
+        const mistakeTopicEl = document.getElementById('mistake-topic');
+        const mistakeTableBody = document.getElementById('mistake-table-body');
+        let mistakeLogModalInstance;
+
+        // User Name Elements
+        const userGreetingEl = document.getElementById('user-greeting');
+        const namePromptForm = document.getElementById('name-prompt-form');
+        const userNameInput = document.getElementById('user-name-input');
+        let namePromptModal;
+
+        // NEW: Streak Elements
+        const streakDisplayEl = document.getElementById('streak-display');
+        const streakCountEl = document.getElementById('streak-count');
+
+
+        // --- State Management ---
+        let state = { tasks: [], taskPerformance: {}, questionLog: {}, dailyGoals: { physics: 30, chemistry: 30, maths: 30 }, userStudyHours: 8, nextTestDate: null, studyLog: {}, theme: 'light', accentColor: '#007bff', syllabusProgress: {}, mistakes: [], userName: null, streakCount: 0, lastStreakDate: null };
+        let subjectChartTimeframe = 7;
+        let performanceChart = null;
+        let subjectChart = null;
+
+        // Timer State
+        let timerMode = 'timer'; // 'timer' or 'stopwatch'
+        let timerStatus = 'stopped'; // 'stopped', 'running', 'paused'
+        let timerInterval = null;
+        let timeValue = 0; // in seconds
+        let timerInitialValue = 0; // for logging completed countdowns
+        let stopwatchStartTime = 0;
+
+        // --- Helper Functions ---
+        const getTodayString = () => new Date().toISOString().split('T')[0];
+        const getYesterdayString = () => { const d = new Date(); d.setDate(d.getDate() - 1); return d.toISOString().split('T')[0]; };
+        const getDayOfWeek = (dateStr) => new Date(dateStr).toLocaleDateString('en-US', { weekday: 'short' });
+        const loadState = () => { const savedState = localStorage.getItem('jeeTrackerState'); if (savedState) state = { ...state, ...JSON.parse(savedState) }; const today = getTodayString(); const lastVisited = localStorage.getItem('lastVisitedDate'); if (lastVisited && lastVisited !== today) { updateAndSaveTaskPerformance(lastVisited, state.tasks); state.tasks = []; } localStorage.setItem('lastVisitedDate', today); };
+        const saveState = () => localStorage.setItem('jeeTrackerState', JSON.stringify(state));
+        
+        // --- Initialization ---
+        const init = () => {
+            loadState();
+            updateStreak(); // Check for broken streak on load
+            applyTheme();
+            applyAccentColor();
+            
+            namePromptModal = new bootstrap.Modal(document.getElementById('namePromptModal'));
+            if (state.userName) {
+                renderUserName();
+            } else {
+                promptForName();
+            }
+
+            populateSyllabusModal();
+            setupEventListeners();
+            updateMistakeTopicDropdown();
+            todayDateEl.textContent = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
+            updateCountdown(); setInterval(updateCountdown, 1000);
+            updateNextTestCountdown(); setInterval(updateNextTestCountdown, 1000);
+            quoteTextEl.textContent = `"${MOTIVATIONAL_QUOTES[Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length)]}"`;
+            displayFormulaOfTheDay();
+            if (state.nextTestDate) { nextTestDateInputEl.value = state.nextTestDate; }
+            renderAll();
+            handleCookieConsent();
+            updateTimerDisplay();
+            mistakeLogModalInstance = new bootstrap.Modal(document.getElementById('mistakeLogModal'));
+            new bootstrap.Tooltip(streakDisplayEl); // Initialize streak tooltip
+        };
+
+        function setupEventListeners() {
+            taskForm.addEventListener('submit', handleTaskFormSubmit);
+            taskList.addEventListener('click', handleTaskListClick);
+            saveLogBtn.addEventListener('click', handleSaveLog);
+            timeframeSwitcher.addEventListener('click', handleTimeframeSwitch);
+            studyHoursInputEl.addEventListener('input', handleStudyHoursChange);
+            nextTestDateInputEl.addEventListener('change', handleNextTestDateChange);
+            
+            // Timer Event Listeners
+            timerModeSwitcher.addEventListener('click', handleTimerModeSwitch);
+            predefinedTimers.addEventListener('click', handlePredefinedTimerClick);
+            setCustomTimeBtn.addEventListener('click', handleSetCustomTimer);
+            timerStartPauseBtn.addEventListener('click', handleStartPauseClick);
+            timerResetBtn.addEventListener('click', handleResetClick);
+            timerFullscreenBtn.addEventListener('click', toggleTimerFullscreen);
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && timerWidget.classList.contains('fullscreen')) { toggleTimerFullscreen(); } });
+
+            // Theme Event Listeners
+            darkModeSwitch.addEventListener('change', handleThemeToggle);
+            themeColorSwatches.addEventListener('click', handleAccentColorChange);
+            
+            // Syllabus Tracker Event Listener
+            syllabusContainer.addEventListener('click', handleSyllabusTopicClick);
+            
+            // Mistake Tracker Event Listeners
+            mistakeSubjectEl.addEventListener('change', updateMistakeTopicDropdown);
+            mistakeLogForm.addEventListener('submit', handleLogMistakeSubmit);
+            mistakeTableBody.addEventListener('click', handleMistakeListClick);
+
+            // User Name Event Listeners
+            namePromptForm.addEventListener('submit', handleNamePromptSubmit);
+            userGreetingEl.addEventListener('click', (e) => {
+                if(e.target.closest('.edit-name-icon')) {
+                    promptForName();
+                }
+            });
+        }
+        
+        // --- NEW: Streak Logic ---
+        const updateStreak = () => {
+            const today = getTodayString();
+            const yesterday = getYesterdayString();
+
+            if (state.lastStreakDate && state.lastStreakDate !== today && state.lastStreakDate !== yesterday) {
+                state.streakCount = 0; // Streak is broken
+            }
+            saveState(); // Save potential change
+        };
+
+        const incrementStreak = () => {
+            const today = getTodayString();
+            if (state.lastStreakDate === today) return; // Already counted for today
+
+            const yesterday = getYesterdayString();
+            if (state.lastStreakDate === yesterday) {
+                state.streakCount++; // Continue streak
+            } else {
+                state.streakCount = 1; // Start a new streak
+            }
+            state.lastStreakDate = today;
+            renderAndSaveAll();
+        };
+
+        const renderStreak = () => {
+            streakCountEl.textContent = state.streakCount;
+            if (state.streakCount > 0) {
+                streakDisplayEl.classList.add('streak-active');
+            } else {
+                streakDisplayEl.classList.remove('streak-active');
+            }
+        };
+
+        // --- User Name Logic ---
+        const promptForName = () => {
+            userNameInput.value = state.userName || '';
+            namePromptModal.show();
+        };
+
+        const handleNamePromptSubmit = (e) => {
+            e.preventDefault();
+            let name = userNameInput.value.trim();
+            if (name) {
+                name = name.charAt(0).toUpperCase() + name.slice(1);
+                state.userName = name;
+                saveState();
+                renderUserName();
+                namePromptModal.hide();
+            }
+        };
+
+        const renderUserName = () => {
+            if (state.userName) {
+                userGreetingEl.innerHTML = `
+                    <span>Welcome, ${state.userName}!</span>
+                    <i class="fa-solid fa-pencil edit-name-icon" aria-label="Edit name"></i>
+                `;
+                userGreetingEl.classList.remove('d-none');
+            } else {
+                userGreetingEl.classList.add('d-none');
+            }
+        };
+        
+        // --- Mistake Tracker Logic ---
+        const updateMistakeTopicDropdown = () => {
+            const selectedSubject = mistakeSubjectEl.value;
+            const topics = SYLLABUS_DATA[selectedSubject];
+            mistakeTopicEl.innerHTML = '';
+            topics.forEach(topic => {
+                const option = document.createElement('option');
+                option.value = topic.name;
+                option.textContent = topic.name;
+                mistakeTopicEl.appendChild(option);
+            });
+        };
+        
+        const handleLogMistakeSubmit = (e) => {
+            e.preventDefault();
+            const newMistake = { id: Date.now(), subject: mistakeSubjectEl.value, topic: mistakeTopicEl.value, errorType: document.getElementById('mistake-error-type').value, source: document.getElementById('mistake-source').value.trim(), correction: document.getElementById('mistake-correction').value.trim(), date: getTodayString() };
+            if (!newMistake.correction) return;
+            state.mistakes.push(newMistake);
+            mistakeLogForm.reset();
+            updateMistakeTopicDropdown();
+            mistakeLogModalInstance.hide();
+            renderAndSaveAll();
+        };
+        
+        const renderMistakes = () => {
+            mistakeTableBody.innerHTML = '';
+            if (state.mistakes.length === 0) {
+                mistakeTableBody.innerHTML = '<tr><td colspan="5" class="text-center text-muted p-3">No mistakes logged yet. Good start!</td></tr>';
+                return;
+            }
+            const recentMistakes = [...state.mistakes].reverse().slice(0, 5);
+            recentMistakes.forEach(mistake => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><span class="badge bg-${mistake.subject === 'physics' ? 'success' : mistake.subject === 'chemistry' ? 'primary' : 'danger'} text-capitalize">${mistake.subject}</span></td>
+                    <td>${mistake.topic}</td>
+                    <td>${mistake.errorType}</td>
+                    <td>${mistake.source || 'N/A'}</td>
+                    <td><button class="delete-mistake-btn" data-id="${mistake.id}" aria-label="Delete mistake"><i class="fa-solid fa-trash-can"></i></button></td>
+                `;
+                mistakeTableBody.appendChild(row);
+            });
+        };
+        
+        const handleMistakeListClick = (e) => {
+            const deleteBtn = e.target.closest('.delete-mistake-btn');
+            if (!deleteBtn) return;
+            const mistakeId = parseInt(deleteBtn.dataset.id);
+            state.mistakes = state.mistakes.filter(m => m.id !== mistakeId);
+            renderAndSaveAll();
+        };
+
+        // --- Syllabus Tracker Logic ---
+        const populateSyllabusModal = () => {
+            for (const subject in SYLLABUS_DATA) {
+                const listEl = document.getElementById(`${subject}-topics-list`);
+                listEl.innerHTML = '';
+                SYLLABUS_DATA[subject].forEach(topic => {
+                    const li = document.createElement('li');
+                    li.className = 'list-group-item syllabus-topic';
+                    li.dataset.topicId = topic.id;
+                    li.innerHTML = `<span>${topic.name}</span><i class="fa-solid fa-circle-check check-icon"></i>`;
+                    listEl.appendChild(li);
+                });
+            }
+        };
+
+        const renderSyllabusProgress = () => {
+            document.querySelectorAll('.syllabus-topic').forEach(topicEl => {
+                topicEl.classList.toggle('completed', !!state.syllabusProgress[topicEl.dataset.topicId]);
+            });
+            renderSyllabusSummary();
+        };
+        
+        const renderSyllabusSummary = () => {
+            for (const subject in SYLLABUS_DATA) {
+                const totalTopics = SYLLABUS_DATA[subject].length;
+                if (totalTopics === 0) continue;
+                const completedTopics = Object.keys(state.syllabusProgress).filter(id => id.startsWith(subject.charAt(0) + '_') && state.syllabusProgress[id]).length;
+                const percentage = Math.round((completedTopics / totalTopics) * 100);
+                syllabusSummary[subject].percent.textContent = `${percentage}%`;
+                syllabusSummary[subject].progress.style.width = `${percentage}%`;
+            }
+        };
+
+        const handleSyllabusTopicClick = (e) => {
+            const topicEl = e.target.closest('.syllabus-topic');
+            if (!topicEl) return;
+            state.syllabusProgress[topicEl.dataset.topicId] = !state.syllabusProgress[topicEl.dataset.topicId];
+            renderAndSaveAll();
+        };
+
+        // --- Theme and Color Customization ---
+        const getChartOptions = (isPerformanceChart = false) => {
+            const isDark = state.theme === 'dark';
+            const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            const textColor = isDark ? '#e0e0e0' : '#6c757d';
+            let options = { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, grid: { color: gridColor }, ticks: { color: textColor } }, x: { grid: { color: gridColor }, ticks: { color: textColor } } }, plugins: { legend: { position: 'top', labels: { color: textColor } } } };
+            if (isPerformanceChart) { options.scales.y.max = 100; options.scales.y.ticks.callback = v => v + '%'; options.plugins.legend.display = false; }
+            return options;
+        };
+
+        const applyTheme = () => {
+            document.documentElement.setAttribute('data-theme', state.theme);
+            darkModeSwitch.checked = state.theme === 'dark';
+            if (performanceChart) { performanceChart.options = getChartOptions(true); performanceChart.update(); }
+            if (subjectChart) { subjectChart.options = getChartOptions(); subjectChart.update(); }
+        };
+
+        const applyAccentColor = () => {
+            document.documentElement.style.setProperty('--primary-color', state.accentColor);
+            document.querySelectorAll('.theme-swatch').forEach(swatch => {
+                swatch.classList.toggle('active', swatch.dataset.color === state.accentColor);
+            });
+            if (performanceChart) { performanceChart.update(); }
+            if (subjectChart) { subjectChart.update(); }
+        };
+
+        const handleThemeToggle = (e) => { state.theme = e.target.checked ? 'dark' : 'light'; applyTheme(); saveState(); };
+        const handleAccentColorChange = (e) => { if (e.target.classList.contains('theme-swatch')) { state.accentColor = e.target.dataset.color; applyAccentColor(); saveState(); } };
+
+
+        // --- Study Time Logging Logic ---
+        const logStudyTime = (secondsToAdd) => {
+            const today = getTodayString();
+            if (!state.studyLog[today]) state.studyLog[today] = 0;
+            state.studyLog[today] += secondsToAdd;
+            renderAndSaveAll();
+        };
+
+        const formatStudyTime = (totalSeconds) => {
+            if (totalSeconds < 60) return `${Math.floor(totalSeconds)}s`;
+            if (totalSeconds < 3600) return `${Math.floor(totalSeconds / 60)}m ${Math.floor(totalSeconds % 60)}s`;
+            return `${Math.floor(totalSeconds / 3600)}h ${Math.floor((totalSeconds % 3600) / 60)}m`;
+        };
+
+        const renderStudyLogMetrics = () => {
+            const todayStr = getTodayString();
+            const todaySeconds = state.studyLog[todayStr] || 0;
+            studyLogTodayEl.textContent = formatStudyTime(todaySeconds);
+            let weeklyTotalSeconds = 0, monthlyTotalSeconds = 0;
+            const dates = Object.keys(state.studyLog);
+            const sevenDaysAgo = new Date(); sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+            const thirtyDaysAgo = new Date(); thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+            dates.forEach(dateStr => {
+                const date = new Date(dateStr);
+                monthlyTotalSeconds += state.studyLog[dateStr] || 0;
+                if (date >= sevenDaysAgo) weeklyTotalSeconds += state.studyLog[dateStr] || 0;
+            });
+            const weeklyAvgSeconds = weeklyTotalSeconds > 0 ? weeklyTotalSeconds / Math.min(7, dates.filter(d => new Date(d) >= sevenDaysAgo).length) : 0;
+            const monthlyAvgSeconds = monthlyTotalSeconds > 0 ? monthlyTotalSeconds / Math.min(30, dates.filter(d => new Date(d) >= thirtyDaysAgo).length) : 0;
+            studyLogAvgWeekEl.textContent = formatStudyTime(weeklyAvgSeconds);
+            studyLogAvgMonthEl.textContent = formatStudyTime(monthlyAvgSeconds);
+        };
+
+        // --- Timer Logic ---
+        const formatTime = (seconds) => {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.floor(seconds % 60);
+            if (h > 0) return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        };
+
+        const updateTimerDisplay = () => { timerDisplayEl.textContent = formatTime(timeValue); };
+        
+        const resetTimer = () => {
+            clearInterval(timerInterval);
+            timerStatus = 'stopped';
+            timeValue = 0;
+            timerInitialValue = 0;
+            timerStartPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i> Start';
+            timerStartPauseBtn.classList.remove('btn-warning');
+            timerStartPauseBtn.classList.add('btn-success');
+            updateTimerDisplay();
+        };
+        
+        const handleResetClick = () => { 
+            if (timeValue > 0) {
+                const timeToLog = (timerMode === 'stopwatch') ? timeValue : timerInitialValue - timeValue;
+                if (timeToLog > 0) logStudyTime(timeToLog);
+            }
+            resetTimer(); 
+        };
+
+        const handleTimerModeSwitch = (e) => { if (e.target.tagName !== 'BUTTON') return; timerMode = e.target.dataset.mode; document.querySelectorAll('#timer-mode-switcher .btn').forEach(btn => btn.classList.remove('active')); e.target.classList.add('active'); timerInputs.style.display = timerMode === 'timer' ? 'block' : 'none'; resetTimer(); };
+        const setTimerValue = (seconds) => { if (timerStatus !== 'running') { timeValue = seconds; timerInitialValue = seconds; updateTimerDisplay(); } };
+        const handlePredefinedTimerClick = (e) => { if (e.target.dataset.time) setTimerValue(parseInt(e.target.dataset.time, 10)); };
+        const handleSetCustomTimer = () => { const minutes = parseInt(customTimeInput.value, 10); if (minutes > 0) { setTimerValue(minutes * 60); customTimeInput.value = ''; } };
+        
+        const tick = () => {
+            if (timerMode === 'timer') {
+                timeValue--;
+                if (timeValue <= 0) {
+                    clearInterval(timerInterval);
+                    timerStatus = 'stopped';
+                    timeValue = 0;
+                    logStudyTime(timerInitialValue);
+                    new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg').play();
+                    timerStartPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i> Start';
+                    timerStartPauseBtn.classList.remove('btn-warning');
+                    timerStartPauseBtn.classList.add('btn-success');
+                }
+            } else { timeValue = Math.floor((Date.now() - stopwatchStartTime) / 1000); }
+            updateTimerDisplay();
+        };
+
+        const handleStartPauseClick = () => {
+            if (timerStatus === 'running') {
+                clearInterval(timerInterval);
+                timerStatus = 'paused';
+                timerStartPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i> Resume';
+                timerStartPauseBtn.classList.replace('btn-success', 'btn-warning');
+                if (timerMode === 'stopwatch') {
+                    const elapsed = Math.floor((Date.now() - stopwatchStartTime) / 1000);
+                    logStudyTime(elapsed);
+                    stopwatchStartTime = Date.now();
+                }
+            } else {
+                if (timerMode === 'stopwatch') { stopwatchStartTime = Date.now() - (timeValue * 1000); }
+                timerStatus = 'running';
+                timerInterval = setInterval(tick, 1000);
+                timerStartPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause';
+                timerStartPauseBtn.classList.remove('btn-warning');
+                timerStartPauseBtn.classList.add('btn-success');
+            }
+        };
+        
+        const toggleTimerFullscreen = () => { timerWidget.classList.toggle('fullscreen'); };
+        
+        // --- Existing Functions (with modifications for streak) ---
+        const handleNextTestDateChange = (e) => { state.nextTestDate = e.target.value; saveState(); updateNextTestCountdown(); };
+        const handleStudyHoursChange = (e) => { let hours = parseInt(e.target.value); if (isNaN(hours) || hours < 1) hours = 1; if (hours > 24) hours = 24; state.userStudyHours = hours; renderAndSaveAll(); };
+        const handleTaskFormSubmit = (e) => { e.preventDefault(); const text = taskInput.value.trim(); if (text) { state.tasks.push({ id: Date.now(), text, completed: false }); taskInput.value = ''; renderAndSaveAll(); } };
+        const handleTaskListClick = (e) => { const li = e.target.closest('.task-item'); if (!li) return; const id = parseInt(li.dataset.id); if (e.target.matches('.delete-btn, .delete-btn *')) { state.tasks = state.tasks.filter(t => t.id !== id); } else if (e.target.type === 'checkbox') { const task = state.tasks.find(t => t.id === id); if (task) task.completed = e.target.checked; if (task.completed) { incrementStreak(); } } renderAndSaveAll(); };
+        const handleSaveLog = () => { const today = getTodayString(); if (!state.questionLog[today]) state.questionLog[today] = { goals: {}, solved: {} }; let totalSolved = 0; for (const subject of ['physics', 'chemistry', 'maths']) { const solvedCount = parseInt(solvedInputs[subject].value) || 0; totalSolved += solvedCount; state.dailyGoals[subject] = parseInt(goalInputs[subject].value) || 0; state.questionLog[today].solved[subject] = solvedCount; } state.questionLog[today].goals = { ...state.dailyGoals }; if (totalSolved > 0) { incrementStreak(); } renderAndSaveAll(); };
+        const handleTimeframeSwitch = (e) => { if (e.target.matches('button')) { subjectChartTimeframe = parseInt(e.target.dataset.days); document.querySelectorAll('#timeframe-switcher .btn').forEach(btn => btn.classList.remove('active')); e.target.classList.add('active'); renderSubjectChart(); } };
+        const updateNextTestCountdown = () => { if (!state.nextTestDate) { nextTestCountdownEl.textContent = "Set a date!"; return; } const targetDate = new Date(state.nextTestDate); const diff = targetDate - new Date(); if (diff <= 0) { nextTestCountdownEl.innerHTML = `<span style="color: var(--green);">Time's up!</span>`; return; } const d = Math.floor(diff/(1000*60*60*24)); const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60)); const m = Math.floor((diff%(1000*60*60))/(1000*60)); const s = Math.floor((diff%(1000*60))/1000); nextTestCountdownEl.textContent = `${String(d).padStart(2,'0')}d:${String(h).padStart(2,'0')}h:${String(m).padStart(2,'0')}m:${String(s).padStart(2,'0')}s`; };
+        const displayFormulaOfTheDay = () => { const now = new Date(), start = new Date(now.getFullYear(), 0, 0); const diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000); const dayOfYear = Math.floor(diff / (1000*60*60*24)); const formula = FORMULAS[dayOfYear % FORMULAS.length]; let badgeClass = ''; switch(formula.subject.toLowerCase()) { case 'physics': badgeClass = 'bg-success'; break; case 'chemistry': badgeClass = 'bg-primary'; break; case 'maths': badgeClass = 'bg-danger'; break; } formulaSubjectBadgeEl.innerHTML = `<span class="badge ${badgeClass}">${formula.subject} - ${formula.topic}</span>`; formulaNameEl.textContent = formula.name; formulaDisplayEl.innerHTML = formula.formula; };
+        const updateCountdown = () => { const diff = JEE_EXAM_DATE - new Date(); if (diff <= 0) { countdownTimerEl.textContent = "All the Best!"; return; } const d = Math.floor(diff/(1000*60*60*24)), h = Math.floor((diff%(1000*60*60*24))/(1000*60*60)); const m = Math.floor((diff%(1000*60*60))/(1000*60)), s = Math.floor((diff%(1000*60))/1000); countdownTimerEl.textContent = `${String(d).padStart(2,'0')}d:${String(h).padStart(2,'0')}h:${String(m).padStart(2,'0')}m:${String(s).padStart(2,'0')}s`; };
+        const renderTasks = () => { taskList.innerHTML = state.tasks.length ? '' : `<li class="text-center text-muted p-3">No goals for today. Add one!</li>`; state.tasks.forEach(task => { const li = document.createElement('li'); li.className = `task-item ${task.completed ? 'completed' : ''}`; li.dataset.id = task.id; li.innerHTML = `<input class="form-check-input me-3" type="checkbox" ${task.completed?'checked':''} id="task-${task.id}"><label for="task-${task.id}" class="task-text flex-grow-1">${task.text}</label><button class="delete-btn btn-sm" aria-label="delete task"><i class="fa-solid fa-trash-alt" aria-hidden="true"></i></button>`; taskList.appendChild(li); }); updateTaskProgress(); };
+        const updateTaskProgress = () => { const total = state.tasks.length; const percentage = total > 0 ? Math.round((state.tasks.filter(t => t.completed).length / total) * 100) : 0; progressBar.style.width = `${percentage}%`; progressText.textContent = `${percentage}% Complete`; };
+        const updateAndSaveTaskPerformance = (dateStr, tasks) => { if (tasks.length > 0) state.taskPerformance[dateStr] = Math.round((tasks.filter(t => t.completed).length / tasks.length) * 100); else delete state.taskPerformance[dateStr]; };
+        const updateQuestionLogUI = () => { const todayLog = state.questionLog[getTodayString()]; for (const subject of ['physics', 'chemistry', 'maths']) { goalInputs[subject].value = state.dailyGoals[subject] || ''; solvedInputs[subject].value = todayLog?.solved?.[subject] || ''; } };
+        const renderFeedback = () => { const todayLog = state.questionLog[getTodayString()]; for (const subject of ['physics', 'chemistry', 'maths']) { const goal = state.dailyGoals[subject] || 0; const solved = todayLog?.solved?.[subject] || 0; const el = feedbackEls[subject]; if (goal === 0 && solved === 0) { el.innerHTML = "Set a goal to begin."; el.className = "feedback-message feedback-neutral"; } else if (goal > 0 && solved >= goal) { el.innerHTML = `<i class="fa-solid fa-check-circle"></i> Great job! Goal of ${goal} met.`; el.className = "feedback-message feedback-positive"; } else if (goal > 0) { el.innerHTML = `<i class="fa-solid fa-person-running"></i> Keep going! ${goal - solved} more needed.`; el.className = "feedback-message feedback-negative"; } else { el.innerHTML = "Log your solved questions."; el.className = "feedback-message feedback-neutral"; } } };
+        const updateSpeedMetrics = () => { let totalQuestions = 0, daysWithLogs = 0; for (let i = 0; i < 7; i++) { const date = new Date(); date.setDate(date.getDate() - i); const dateStr = date.toISOString().split('T')[0]; const log = state.questionLog[dateStr]; if (log?.solved) { const dailyTotal = (log.solved.physics || 0) + (log.solved.chemistry || 0) + (log.solved.maths || 0); if (dailyTotal > 0) { totalQuestions += dailyTotal; daysWithLogs++; } } } const avgQpd = (daysWithLogs > 0) ? (totalQuestions / daysWithLogs) : 0; const qph = (avgQpd > 0 && state.userStudyHours > 0) ? (avgQpd / state.userStudyHours) : 0; const qpw = avgQpd * 7; speedQphEl.textContent = qph.toFixed(1); speedQpdEl.textContent = Math.round(avgQpd); speedQpwEl.textContent = Math.round(qpw); studyHoursInputEl.value = state.userStudyHours; };
+        const renderTaskPerformanceChart = () => { const labels = [], data = []; for (let i = 6; i >= 0; i--) { const date = new Date(); date.setDate(date.getDate() - i); const dateStr = date.toISOString().split('T')[0]; labels.push(getDayOfWeek(dateStr)); data.push(state.taskPerformance[dateStr] || 0); } const chartData = { labels, datasets: [{ label: '% Tasks Completed', data, backgroundColor: 'rgba(40,167,69,0.1)', borderColor: '#28a745', borderWidth: 2, tension: 0.4, fill: true }] }; const ctx = document.getElementById('performanceChart').getContext('2d'); if (performanceChart) { performanceChart.data = chartData; performanceChart.update('none'); } else { performanceChart = new Chart(ctx, { type: 'line', data: chartData, options: getChartOptions(true) }); } };
+        const renderSubjectChart = () => { const labels = [], datasets = { physics: { label: 'Physics', data: [], borderColor: 'var(--physics-color)', tension: 0.3, backgroundColor: 'rgba(40,167,69,0.1)' }, chemistry: { label: 'Chemistry', data: [], borderColor: 'var(--chemistry-color)', tension: 0.3, backgroundColor: 'rgba(13,110,253,0.1)' }, maths: { label: 'Maths', data: [], borderColor: 'var(--maths-color)', tension: 0.3, backgroundColor: 'rgba(220,53,69,0.1)' } }; for (let i = subjectChartTimeframe - 1; i >= 0; i--) { const date = new Date(); date.setDate(date.getDate() - i); const dateStr = date.toISOString().split('T')[0]; labels.push(`${getDayOfWeek(dateStr)} ${date.getDate()}`); const log = state.questionLog[dateStr]; datasets.physics.data.push(log?.solved?.physics || 0); datasets.chemistry.data.push(log?.solved?.chemistry || 0); datasets.maths.data.push(log?.solved?.maths || 0); } const chartData = { labels, datasets: Object.values(datasets).map(d => ({ ...d, fill: true })) }; const ctx = document.getElementById('subjectChart').getContext('2d'); if (subjectChart) { subjectChart.data = chartData; subjectChart.update('none'); } else { subjectChart = new Chart(ctx, { type: 'line', data: chartData, options: getChartOptions() }); } };
+        const updateWeeklySummary = () => { let totalPercent = 0, daysCounted = 0; for (let i = 0; i < 7; i++) { const date = new Date(); date.setDate(date.getDate() - i); const dateStr = date.toISOString().split('T')[0]; if (state.taskPerformance[dateStr] !== undefined) { totalPercent += state.taskPerformance[dateStr]; daysCounted++; } } weeklySummaryPercent.textContent = `${daysCounted > 0 ? Math.round(totalPercent / daysCounted) : 0}%`; };
+        
+        // --- Central Render Functions ---
+        const renderAll = () => { 
+            renderTasks(); 
+            renderTaskPerformanceChart(); 
+            updateWeeklySummary(); 
+            updateQuestionLogUI(); 
+            renderFeedback(); 
+            renderSubjectChart(); 
+            updateSpeedMetrics();
+            renderStudyLogMetrics();
+            renderSyllabusProgress();
+            renderMistakes(); 
+            renderStreak(); // Render streak
+        }
+        const renderAndSaveAll = () => { 
+            updateAndSaveTaskPerformance(getTodayString(), state.tasks); 
+            saveState(); 
+            renderAll(); 
+        };
+        const handleCookieConsent = () => { if (!localStorage.getItem('cookieConsent')) { cookieBanner.style.display = 'flex'; } acceptCookiesBtn.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'true'); cookieBanner.style.display = 'none'; }); };
+
+        init();
+    });
+    </script>
+</body>
+</html>
